@@ -19,8 +19,8 @@ public class zapatos extends objetos {
         super();
     }
 
-    public zapatos(int talla, String descrz, int comodidad, Color color, String descripcion, String marca, int tamaño, String calidad, Personas p) {
-        super(color, descripcion, marca, tamaño, calidad, p);
+    public zapatos(int talla, String descrz, int comodidad, Color color, String descripcion, String marca, int tamaño, String calidad, String persona) {
+        super(color, descripcion, marca, tamaño, calidad, persona);
         this.talla = talla;
         this.descrz = descrz;
         this.comodidad = comodidad;

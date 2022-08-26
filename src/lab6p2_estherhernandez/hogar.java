@@ -15,8 +15,8 @@ public class hogar extends objetos {
         super();
     }
 
-    public hogar(String lugarc, String funcionamiento, int garantia, Color color, String descripcion, String marca, int tamaño, String calidad, Personas p) {
-        super(color, descripcion, marca, tamaño, calidad, p);
+    public hogar(String lugarc, String funcionamiento, int garantia, Color color, String descripcion, String marca, int tamaño, String calidad, String persona) {
+        super(color, descripcion, marca, tamaño, calidad, persona);
         this.lugarc = lugarc;
         this.funcionamiento = funcionamiento;
         this.garantia = garantia;

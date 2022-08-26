@@ -19,8 +19,8 @@ public class ropa extends objetos {
         super();
     }
 
-    public ropa(String tallap, String tela, String pais, Color color, String descripcion, String marca, int tamaño, String calidad, Personas p) {
-        super(color, descripcion, marca, tamaño, calidad, p);
+    public ropa(String tallap, String tela, String pais, Color color, String descripcion, String marca, int tamaño, String calidad, String persona) {
+        super(color, descripcion, marca, tamaño, calidad, persona);
         this.tallap = tallap;
         this.tela = tela;
         this.pais = pais;

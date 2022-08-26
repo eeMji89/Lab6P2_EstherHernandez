@@ -53,6 +53,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="p_cobjeto">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="p_cobjetoStateChanged"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -104,14 +107,12 @@
                                                                   <Component id="jf_edad" alignment="0" max="32767" attributes="0"/>
                                                               </Group>
                                                               <Component id="jc_tipop" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                                  <Component id="jf_peso" alignment="1" min="-2" pref="72" max="-2" attributes="0"/>
-                                                                  <Component id="jf_altura" min="-2" pref="72" max="-2" attributes="0"/>
-                                                              </Group>
                                                               <Group type="102" alignment="0" attributes="0">
                                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                                       <Component id="jr_m" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                                                       <Component id="jr_soltero" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                                                      <Component id="jf_altura" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                                                      <Component id="jf_peso" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                                                   </Group>
                                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -414,6 +415,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jf_edad">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jp_pass">
               <Events>
@@ -433,11 +439,14 @@
             <Component class="javax.swing.JTextField" name="jt_ocupacion">
             </Component>
             <Component class="javax.swing.JTextField" name="jt_horario">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jf_sueldo">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="1" type="0"/>
+                  <Format subtype="0" type="0"/>
                 </Property>
               </Properties>
             </Component>
@@ -456,14 +465,10 @@
                 <Property name="text" type="java.lang.String" value="Lps."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jf_altura">
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jf_peso">
-            </Component>
             <Component class="javax.swing.JFormattedTextField" name="jf_tiempo">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="1" type="0"/>
+                  <Format subtype="0" type="0"/>
                 </Property>
               </Properties>
             </Component>
@@ -489,6 +494,16 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jf_id">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jf_idActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jf_altura">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jf_peso">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jf_pesoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -512,16 +527,9 @@
                           <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                              <Component id="jt_com" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane2" min="-2" pref="124" max="-2" attributes="0"/>
@@ -536,6 +544,10 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jt_com" min="-2" pref="53" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -559,9 +571,14 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="305" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jb_agob" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -697,14 +714,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jt_com" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jScrollPane2" min="-2" pref="43" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jt_com" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -734,8 +750,8 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jb_agob" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -826,6 +842,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jb_color">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_colorMouseClicked"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -851,12 +870,7 @@
             <Component class="javax.swing.JComboBox" name="jb_per">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -899,12 +913,12 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jt_pais">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jb_agob">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar objeto"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_agobMouseClicked"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
@@ -1059,7 +1073,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel49" min="-2" pref="262" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox4" min="-2" pref="243" max="-2" attributes="0"/>
+                                                  <Component id="jc_modp" min="-2" pref="243" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1126,7 +1140,7 @@
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jc_modp" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1262,6 +1276,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar Persona"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_modipMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jr_m1">
               <Properties>
@@ -1407,7 +1424,7 @@
                 <Property name="text" type="java.lang.String" value="Cargo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="jc_modp">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -1435,7 +1452,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" min="-2" pref="182" max="-2" attributes="0"/>
+                              <Component id="jc_objm" min="-2" pref="182" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
@@ -1564,7 +1581,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jc_objm" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="359" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rb_s1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1903,7 +1920,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jt_pais1">
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="jc_objm">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">

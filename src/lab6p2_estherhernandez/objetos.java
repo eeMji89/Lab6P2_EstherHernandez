@@ -12,18 +12,18 @@ public class objetos {
     private String marca;
     private int tamaño;
     private String calidad;
-    private Personas p;
+    private String persona;
 
     public objetos() {
     }
 
-    public objetos(Color color, String descripcion, String marca, int tamaño, String calidad, Personas p) {
+    public objetos(Color color, String descripcion, String marca, int tamaño, String calidad, String persona) {
         this.color = color;
         this.descripcion = descripcion;
         this.marca = marca;
         this.tamaño = tamaño;
         this.calidad = calidad;
-        this.p = p;
+        this.persona = persona;
     }
 
     public Color getColor() {
@@ -66,17 +66,17 @@ public class objetos {
         this.calidad = calidad;
     }
 
-    public Personas getP() {
-        return p;
+    public String getP() {
+        return persona;
     }
 
     public void setP(Personas p) {
-        this.p = p;
+        this.persona = persona;
     }
 
     @Override
     public String toString() {
-        return "objetos{" + "color=" + color + ", descripcion=" + descripcion + ", marca=" + marca + ", tama\u00f1o=" + tamaño + ", calidad=" + calidad + ", p=" + p + '}';
+        return "objetos{" + "color=" + color + ", descripcion=" + descripcion + ", marca=" + marca + ", tama\u00f1o=" + tamaño + ", calidad=" + calidad + ", p=" + persona + '}';
     }
     
     
