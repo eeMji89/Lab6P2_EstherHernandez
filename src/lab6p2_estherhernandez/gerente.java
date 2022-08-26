@@ -25,6 +25,8 @@ public class gerente extends Personas {
         this.cargo = cargo;
     }
 
+   
+
     public String getUsuario() {
         return usuario;
     }
