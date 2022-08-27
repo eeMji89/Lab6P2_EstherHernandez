@@ -1328,6 +1328,12 @@ public class Main extends javax.swing.JFrame {
 
         p_cobjeto.addTab("Modificar Objeto", jPanel4);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gerente");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("General");
+        treeNode1.add(treeNode2);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane7.setViewportView(jTree1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1349,6 +1355,14 @@ public class Main extends javax.swing.JFrame {
 
         p_cobjeto.addTab("Jerarquia de personas", jPanel5);
 
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Zapatos");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Ropa");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Del hogar");
+        treeNode1.add(treeNode2);
+        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane8.setViewportView(jTree2);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1662,15 +1676,31 @@ public class Main extends javax.swing.JFrame {
           jb_per.setModel(modelopi);
         }
          else if (p_cobjeto.getSelectedIndex()==5) {
-             DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
-        DefaultMutableTreeNode Personas= (DefaultMutableTreeNode) m.getRoot();
-        
+             DefaultTreeModel modelo = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode Personas= (DefaultMutableTreeNode) modelo.getRoot();
+         DefaultMutableTreeNode Gerente;
+         DefaultMutableTreeNode General;
+        Gerente = new DefaultMutableTreeNode(); 
+        General = new DefaultMutableTreeNode(); 
+        Personas.add(Gerente);
+        Personas.add(General);
       
              
          }
           else if (p_cobjeto.getSelectedIndex()==6) {
-              DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
-        DefaultMutableTreeNode Personas= (DefaultMutableTreeNode) m.getRoot();
+              DefaultTreeModel model = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode Objetos = (DefaultMutableTreeNode) model.getRoot();
+        DefaultMutableTreeNode Zapatos;
+         DefaultMutableTreeNode Ropa;
+         DefaultMutableTreeNode Hogar;
+        Zapatos = new DefaultMutableTreeNode(); 
+         Ropa = new DefaultMutableTreeNode(); 
+         Hogar = new DefaultMutableTreeNode();
+        Objetos.add(Zapatos);
+        Objetos.add(Ropa);
+        Objetos.add(Hogar);
+        
+      
           }
         else if (p_cobjeto.getSelectedIndex()==7) {
             DefaultTableModel modelot = (DefaultTableModel) jTable2.getModel();
