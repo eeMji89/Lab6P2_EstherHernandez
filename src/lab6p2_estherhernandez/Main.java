@@ -179,7 +179,7 @@ public class Main extends javax.swing.JFrame {
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        jf_sueldo1 = new javax.swing.JFormattedTextField();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
@@ -868,7 +868,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel62.setText("Ocupacion:");
 
-        jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jf_sueldo1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 
         jLabel63.setText("Horario:");
 
@@ -956,7 +956,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jf_tiempo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jf_sueldo1, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1032,7 +1032,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jf_sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel64))
                 .addGap(18, 18, 18)
                 .addComponent(jb_modip)
@@ -1605,6 +1605,40 @@ public class Main extends javax.swing.JFrame {
     private void jb_modipMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modipMouseClicked
         // TODO add your handling code here:
         
+        String sexo,estado,cargo;
+        int edad,altura,peso, tiempo;
+        double sueldo;
+        sueldo= Double.parseDouble(jf_sueldo1.getText());
+        tiempo = Integer.parseInt(jf_tiempo1.getText());
+        edad = Integer.parseInt(jf_edad1.getText());
+        peso = Integer.parseInt(jf_peso1.getText());
+        altura = Integer.parseInt(jf_altura1.getText());
+        cargo = jc_cargo.getSelectedItem().toString();
+        
+         if (jr_m.isSelected()) {
+            sexo = "M";
+        }
+        else{
+            sexo = "F";
+        }
+         if (jr_soltero.isSelected()) {
+            estado = "Soltero";
+        }
+        else{
+            estado = "Casado";
+        }
+        int p = jc_modp.getSelectedIndex();
+        pers.get(p);
+        if (pers.get(p) instanceof Personas) {
+            ((Personas)pers.get(p)).setNombre(jt_nombre1.getText());
+            ((Personas)pers.get(p)).setAltura(altura);
+            ((Personas)pers.get(p)).setEdad(p);
+            ((Personas)pers.get(p)).setID(jf_id1.getText());
+            ((Personas)pers.get(p)).setEstado(estado);
+            ((Personas)pers.get(p)).setPeso(p);
+            ((Personas)pers.get(p)).setSexo(sexo);
+        }
+        
     }//GEN-LAST:event_jb_modipMouseClicked
 
     private void p_cobjetoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_p_cobjetoStateChanged
@@ -1616,10 +1650,18 @@ public class Main extends javax.swing.JFrame {
              modelomp.addElement(pers.get(i));
               modelopi.addElement(pers.get(i));
           
-        }
-        }
-       jc_modp.setModel(modelomp);
+        } jc_modp.setModel(modelomp);
           jb_per.setModel(modelopi);
+        }
+        else if (p_cobjeto.getSelectedIndex()==7) {
+            for (int j = 0; j < pers.size(); j++) {
+                ((Personas)pers.get(j)).getNombre();
+            }
+        }
+        else if (p_cobjeto.getSelectedIndex()==8) {
+            
+        }
+      
         
     }//GEN-LAST:event_p_cobjetoStateChanged
 
@@ -1671,7 +1713,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1805,6 +1846,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jf_peso;
     private javax.swing.JFormattedTextField jf_peso1;
     private javax.swing.JFormattedTextField jf_sueldo;
+    private javax.swing.JFormattedTextField jf_sueldo1;
     private javax.swing.JFormattedTextField jf_tiempo;
     private javax.swing.JFormattedTextField jf_tiempo1;
     private javax.swing.JPasswordField jp_pass;
