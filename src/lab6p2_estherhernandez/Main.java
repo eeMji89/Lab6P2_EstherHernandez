@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -1369,15 +1372,20 @@ public class Main extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Nombre", "Rol"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane12.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1653,9 +1661,24 @@ public class Main extends javax.swing.JFrame {
         } jc_modp.setModel(modelomp);
           jb_per.setModel(modelopi);
         }
+         else if (p_cobjeto.getSelectedIndex()==5) {
+             DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode Personas= (DefaultMutableTreeNode) m.getRoot();
+        
+      
+             
+         }
+          else if (p_cobjeto.getSelectedIndex()==6) {
+              DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode Personas= (DefaultMutableTreeNode) m.getRoot();
+          }
         else if (p_cobjeto.getSelectedIndex()==7) {
+            DefaultTableModel modelot = (DefaultTableModel) jTable2.getModel();
+            Object nombre, rol;
             for (int j = 0; j < pers.size(); j++) {
-                ((Personas)pers.get(j)).getNombre();
+                nombre = ((general)pers.get(j)).getNombre();
+                rol = ((general)pers.get(j)).getOcupacion();
+               // modelot.addRow( nombre);
             }
         }
         else if (p_cobjeto.getSelectedIndex()==8) {
